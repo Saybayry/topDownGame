@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://bv0pxudsp3que"]
+
+[ext_resource type="Script" path="res://scenes/objects/other/exit.gd" id="1_piu2s"]
+[ext_resource type="Texture2D" uid="uid://4d2oylwho8xg" path="res://assets/textures/Новая папка (2)/Exterrior/walls_roofs_and_other.png" id="2_e1bft"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4hpyc"]
+size = Vector2(34, 11)
+
+[node name="Exit" type="Area2D"]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_piu2s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 19.5)
+scale = Vector2(1, 0.974701)
+shape = SubResource("RectangleShape2D_4hpyc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 20)
+scale = Vector2(1, -1)
+texture = ExtResource("2_e1bft")
+region_enabled = true
+region_rect = Rect2(529, 87, 31, 12)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

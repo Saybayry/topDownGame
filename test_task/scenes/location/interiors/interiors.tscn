@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://bcvgrx3knxyw7"]
+
+[ext_resource type="Script" path="res://scenes/location/interiors/interiors.gd" id="1_ookhq"]
+[ext_resource type="PackedScene" uid="uid://bv0pxudsp3que" path="res://scenes/objects/other/exit.tscn" id="1_qilno"]
+[ext_resource type="Texture2D" uid="uid://byirn1b7tjl73" path="res://assets/textures/Новая папка (2)/Exterrior/floor_and_deoratives.png" id="4_dva0g"]
+
+[sub_resource type="TileSet" id="TileSet_aje48"]
+
+[node name="interiors" type="Node2D" node_paths=PackedStringArray("startPoints")]
+script = ExtResource("1_ookhq")
+startPoints = [NodePath("Node2D")]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_aje48")
+format = 2
+
+[node name="YSort" type="Node2D" parent="."]
+y_sort_enabled = true
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(0, -49)
+
+[node name="FloorAndDeoratives" type="Sprite2D" parent="."]
+position = Vector2(-291, -260)
+texture = ExtResource("4_dva0g")
+
+[node name="Exit" parent="." instance=ExtResource("1_qilno")]
+position = Vector2(0, -3)

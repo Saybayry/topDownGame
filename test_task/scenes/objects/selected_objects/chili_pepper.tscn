@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bylgsbguqvpg3"]
+
+[ext_resource type="Texture2D" uid="uid://d0l3oexdcwual" path="res://assets/textures/Новая папка (2)/Interrior/Walls_sides_other.png" id="1_4osvi"]
+[ext_resource type="Script" path="res://scenes/objects/selected_objects/pickable_objects.gd" id="1_5jl4k"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ca71q"]
+radius = 8.0
+
+[node name="ChiliPepper" type="Node2D"]
+script = ExtResource("1_5jl4k")
+add_health = -1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_4osvi")
+region_enabled = true
+region_rect = Rect2(690, 274, 12, 12)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 256
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 1)
+shape = SubResource("CircleShape2D_ca71q")
